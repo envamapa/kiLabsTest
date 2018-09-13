@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WunderTest</string>
+    <string name="downloading">Downloading great stuff...</string>
 </resources>

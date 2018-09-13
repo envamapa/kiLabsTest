@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mx.envamapa.app.wundertest.SplashScreen">
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context="com.mx.envamapa.app.wundertest.views.view.SplashScreen">
 
-</android.support.constraint.ConstraintLayout>
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/car_animation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:lottie_rawRes="@raw/car"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"
+        android:layout_alignParentTop="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/downloading"
+        android:layout_below="@+id/car_animation"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

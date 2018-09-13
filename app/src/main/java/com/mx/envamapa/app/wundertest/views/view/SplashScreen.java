@@ -1,9 +1,11 @@
-package com.mx.envamapa.app.wundertest;
+package com.mx.envamapa.app.wundertest.views.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SplashScreen extends AppCompatActivity {
+import com.mx.envamapa.app.wundertest.R;
+
+public class SplashScreen extends AppCompatActivity implements SplashScreenInterface {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
