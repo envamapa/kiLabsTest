@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">WunderTest</string>
     <string name="downloading">Downloading great stuff...</string>
+    <string name="system_error">System error</string>
+    <string name="error_de_servidor_reintento">server_error</string>
+    <string name="check_internet">Check your internet connection</string>
+    <string name="exceeded">Number of attempts exceeded</string>
+    <string name="no_elements">There are no elements to save</string>
+    <string name="saved">Information saved</string>
+    <string name="data_exists">Data exists. No need to download.</string>
+    <string name="accept">Accept</string>
+    <string name="cancel">Cancel</string>
+    <string name="msg_need_permission">We need permissions to continue</string>
+    <string name="msg_explain_need_permission">We need the next permissions</string>
+    <string name="title_activity_maps">NearCars</string>
 </resources>

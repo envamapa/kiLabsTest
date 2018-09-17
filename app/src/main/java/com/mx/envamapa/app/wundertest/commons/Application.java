@@ -1,6 +1,7 @@
 package com.mx.envamapa.app.wundertest.commons;
 
 import com.mx.envamapa.app.wundertest.commons.di.component.AppComponent;
+import com.mx.envamapa.app.wundertest.commons.di.component.DaggerAppComponent;
 import com.mx.envamapa.app.wundertest.commons.di.module.AppModule;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
@@ -29,6 +30,7 @@ public class Application extends android.app.Application {
             realm = Realm.getInstance(config);
 
         }
+        realm.close();
         createDaggerInjections();
         Logger.addLogAdapter(new AndroidLogAdapter());
 

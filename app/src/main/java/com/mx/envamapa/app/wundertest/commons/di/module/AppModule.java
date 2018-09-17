@@ -2,12 +2,12 @@ package com.mx.envamapa.app.wundertest.commons.di.module;
 
 import android.content.Context;
 
+import com.mx.envamapa.app.wundertest.commons.Application;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import smartapp.app.sura.mx.com.smartapp.Commons.Application;
-import smartapp.app.sura.mx.com.smartapp.Domain.Manager.TaskManager;
 
 @Module
 public class AppModule {
@@ -30,10 +30,10 @@ public class AppModule {
         return (Application) context;
     }
 
-    @Provides
+    /*@Provides
     @Singleton
     public TaskManager taskManager(){
         return new TaskManager();
-    }
+    }*/
 
 }

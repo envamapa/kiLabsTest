@@ -3,6 +3,7 @@ apply plugin: 'realm-android'
 
 android {
     compileSdkVersion 26
+    useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.mx.envamapa.app.wundertest"
         minSdkVersion 19
@@ -28,6 +29,7 @@ dependencies {
     implementation 'com.mcxiaoke.volley:library:1.0.19' //For requests
     implementation 'com.orhanobut:logger:2.1.1'         //For beautiful logs :3
     implementation 'com.google.dagger:dagger:2.9'       //Dagger injection
+    implementation 'com.google.android.gms:play-services-maps:15.0.1'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.9'
     implementation 'javax.inject:javax.inject:1'
 }
