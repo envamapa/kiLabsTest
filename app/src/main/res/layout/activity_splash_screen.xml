@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         app:lottie_rawRes="@raw/car"
         app:lottie_loop="true"
-        app:lottie_autoPlay="true"
         android:layout_alignParentTop="true"/>
 
     <TextView

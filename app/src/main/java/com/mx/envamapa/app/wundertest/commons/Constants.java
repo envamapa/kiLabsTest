@@ -9,6 +9,7 @@ public class Constants {
     public static final boolean ALLOWING_LOGS = true;
     public static String TAG_LOG = "WUNDER TEST";
 
+    public static int SPLASH_TIME = 3000;
     public static int TIMEOUT = 20000;
     public static int RETRIES = 3;
 

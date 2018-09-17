@@ -44,7 +44,7 @@ public class SplashPresenter implements SplashPresenterInterface, PermissionUtil
         permissionUtils = new PermissionUtils(viewInterface.getMainActivity() ,application.getBaseContext(), this);
 
         permissionList = new ArrayList<>();
-        permissionList.add(Manifest.permission.INTERNET);
+        permissionList.add(Manifest.permission.ACCESS_NETWORK_STATE);
         permissionList.add(Manifest.permission.ACCESS_FINE_LOCATION);
         permissionList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
         permissionList.add(Manifest.permission.READ_EXTERNAL_STORAGE);

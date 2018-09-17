@@ -2,12 +2,18 @@ package com.mx.envamapa.app.wundertest.views.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.mx.envamapa.app.wundertest.R;
 import com.mx.envamapa.app.wundertest.commons.Application;
+import com.mx.envamapa.app.wundertest.commons.Constants;
+import com.mx.envamapa.app.wundertest.commons.Utils;
 import com.mx.envamapa.app.wundertest.views.presenter.SplashPresenter;
+import com.mx.envamapa.app.wundertest.views.view.mainActivity.MainActivity;
 
 import javax.inject.Inject;
 
@@ -18,6 +24,9 @@ public class SplashScreen extends AppCompatActivity implements SplashScreenInter
     @Inject
     Context context;
 
+    //UI Variables
+    private LottieAnimationView carAnimation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +35,23 @@ public class SplashScreen extends AppCompatActivity implements SplashScreenInter
         ((Application) getApplication()).getAppComponent().inject(this);
 
         presenter = new SplashPresenter(this, ((Application) getApplication()));
-        downloadInformation();
+        initAnimation();
+    }
+
+    private void initAnimation(){
+        carAnimation = findViewById(R.id.car_animation);
+        new CountDownTimer(Constants.SPLASH_TIME, 1000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                carAnimation.playAnimation();
+            }
+
+            @Override
+            public void onFinish() {
+                downloadInformation();
+            }
+        }.start();
     }
 
     private void downloadInformation(){
@@ -35,12 +60,13 @@ public class SplashScreen extends AppCompatActivity implements SplashScreenInter
 
     @Override
     public void goToMainActivity(){
-
+        Intent mainActivityIntent = new Intent(this, MainActivity.class);
+        startActivity(mainActivityIntent);
     }
 
     @Override
     public void showMessage(String message){
-
+        Utils.printLogInfo(message, true, false);
     }
 
     @Override
@@ -50,6 +76,7 @@ public class SplashScreen extends AppCompatActivity implements SplashScreenInter
 
     @Override
     public void error(){
+        Utils.printLogError("No permissions", true, false);
         this.finish();
     }
 }
