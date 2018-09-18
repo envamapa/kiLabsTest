@@ -18,6 +18,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.mx.envamapa.app.wundertest.R;
 import com.mx.envamapa.app.wundertest.commons.Application;
+import com.mx.envamapa.app.wundertest.commons.CoordinateConvertions;
 import com.mx.envamapa.app.wundertest.commons.Utils;
 import com.mx.envamapa.app.wundertest.data.sources.service.respCars.Car;
 import com.mx.envamapa.app.wundertest.views.presenter.mapPresenter.MapPresenter;
@@ -104,9 +105,12 @@ public class MapFragment extends Fragment implements MapInterface, OnMapReadyCal
         //Add markers
         for(int i = 0; i < carList.size() ; i++){
             final Car car = carList.get(i);
-            final LatLng sydney = new LatLng(car.getCoordinates()[0], car.getCoordinates()[1]);
+
+            LatLng position = new LatLng(car.getCoordinates()[1], car.getCoordinates()[0]);
+
             mMap.addMarker(new MarkerOptions()
-                    .position(sydney)
+                    .position(position)
+                    .title(car.getName())
                     .icon(Utils.bitmapDescriptorFromVector(getContext(), R.drawable.ic_car)));
             mMap.setOnMarkerClickListener(this);
         }
@@ -125,9 +129,10 @@ public class MapFragment extends Fragment implements MapInterface, OnMapReadyCal
             mMap.clear();
             mMap.addMarker(new MarkerOptions()
                     .position(marker.getPosition())
+                    .title(marker.getTitle())
                     .icon(Utils.bitmapDescriptorFromVector(getContext(), R.drawable.ic_car)));
         }
 
-        return tappedMarker;
+        return !tappedMarker;
     }
 }

@@ -118,6 +118,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/commons/CoordinateConvertions.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/commons/EndlessScrollListener.java">
           <value>
             <set />
