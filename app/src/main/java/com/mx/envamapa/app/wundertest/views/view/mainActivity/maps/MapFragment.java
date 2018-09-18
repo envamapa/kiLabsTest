@@ -111,7 +111,8 @@ public class MapFragment extends Fragment implements MapInterface, OnMapReadyCal
             mMap.addMarker(new MarkerOptions()
                     .position(position)
                     .title(car.getName())
-                    .icon(Utils.bitmapDescriptorFromVector(getContext(), R.drawable.ic_car)));
+                    .icon(Utils.bitmapDescriptorFromVector(getContext(), R.drawable.ic_car)))
+                    .hideInfoWindow();
             mMap.setOnMarkerClickListener(this);
         }
     }
@@ -130,7 +131,8 @@ public class MapFragment extends Fragment implements MapInterface, OnMapReadyCal
             mMap.addMarker(new MarkerOptions()
                     .position(marker.getPosition())
                     .title(marker.getTitle())
-                    .icon(Utils.bitmapDescriptorFromVector(getContext(), R.drawable.ic_car)));
+                    .icon(Utils.bitmapDescriptorFromVector(getContext(), R.drawable.ic_car)))
+                    .showInfoWindow();
         }
 
         return !tappedMarker;
