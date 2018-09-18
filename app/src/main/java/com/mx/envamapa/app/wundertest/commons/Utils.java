@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 
+import com.mx.envamapa.app.wundertest.R;
 import com.orhanobut.logger.Logger;
 
 /**
@@ -88,4 +89,13 @@ public class Utils {
         return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 
+    public static int getAnimation(String result) {
+        if(result.equals(Constants.GOOD)){
+            return R.raw.good;
+        }else if(result.equals(Constants.UNACCEPTABLE)){
+            return R.raw.unacceptable;
+        }else{
+            return R.raw.like;
+        }
+    }
 }

@@ -1,58 +1,54 @@
 package com.mx.envamapa.app.wundertest.views.view.mainActivity.list;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.Toast;
 
 import com.mx.envamapa.app.wundertest.R;
+import com.mx.envamapa.app.wundertest.commons.Application;
+import com.mx.envamapa.app.wundertest.commons.Constants;
+import com.mx.envamapa.app.wundertest.commons.EndlessScrollListener;
+import com.mx.envamapa.app.wundertest.commons.Utils;
+import com.mx.envamapa.app.wundertest.commons.adapters.CarAdapter;
+import com.mx.envamapa.app.wundertest.data.sources.service.respCars.Car;
+import com.mx.envamapa.app.wundertest.views.presenter.listPresenter.CarListPresenter;
 import com.mx.envamapa.app.wundertest.views.view.mainActivity.MainActivityInterface;
-import com.mx.envamapa.app.wundertest.views.view.mainActivity.list.dummy.DummyContent;
-import com.mx.envamapa.app.wundertest.views.view.mainActivity.list.dummy.DummyContent.DummyItem;
 
 import java.util.List;
 
-/**
- * A fragment representing a list of Items.
- * <p/>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
- * interface.
- */
-public class CarListFragment extends Fragment {
+public class CarListFragment extends Fragment implements CarListInterface{
 
-    // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
-    private int mColumnCount = 1;
+    private int mColumnCount = 2;
     private OnListFragmentInteractionListener mListener;
     private MainActivityInterface mainViewInterface;
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
-    public CarListFragment() {
-    }
 
-    // TODO: Customize parameter initialization
-    @SuppressWarnings("unused")
-    public static CarListFragment newInstance(int columnCount) {
-        CarListFragment fragment = new CarListFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
-        return fragment;
+    //UI
+    private View rootView;
+    private RecyclerView recyclerView;
+
+    private CarListPresenter presenter;
+    private int initCount = 0;
+    private CarAdapter carAdapter;
+    private EndlessScrollListener scrollListener;
+
+    public CarListFragment() {
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
@@ -61,22 +57,49 @@ public class CarListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_car_list, container, false);
+        rootView = inflater.inflate(R.layout.fragment_car_list, container, false);
 
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
-            recyclerView.setAdapter(new CarRecyclerViewAdapter(DummyContent.ITEMS, mListener));
-        }
-        return view;
+        presenter = new CarListPresenter(this, ((Application)getContext().getApplicationContext()));
+
+        initView();
+
+        presenter.get15Cars(initCount);
+
+        return rootView;
     }
 
+    private void initView(){
+        if (rootView instanceof RecyclerView) {
+            Context context = rootView.getContext();
+            recyclerView = (RecyclerView) rootView;
+            if (mColumnCount <= 1) {
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+                recyclerView.setLayoutManager(linearLayoutManager);
+                scrollListener = new EndlessScrollListener(linearLayoutManager) {
+                    @Override
+                    public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                        updateCount();
+                    }
+                };
+            } else {
+                GridLayoutManager gridLayoutManager = new GridLayoutManager(context, mColumnCount);
+                recyclerView.setLayoutManager(gridLayoutManager);
+                scrollListener = new EndlessScrollListener(gridLayoutManager) {
+                    @Override
+                    public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                        updateCount();
+                    }
+                };
+            }
+        }
+
+        recyclerView.addOnScrollListener(scrollListener);
+    }
+
+    private void updateCount(){
+        initCount+= Constants.ITEM_COUNT;
+        presenter.get15Cars(initCount);
+    }
 
     @Override
     public void onAttach(Context context) {
@@ -95,18 +118,18 @@ public class CarListFragment extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(Car item);
+    }
+
+    @Override
+    public void reloadList(List<Car> carList){
+        if(initCount != 0){
+            carAdapter.addElements(carList);
+        }else{
+            carAdapter = new CarAdapter(getContext(), carList, mListener);
+        }
+        Toast.makeText(getContext(), "Showing "+carAdapter.getItemCount()+" cars", Toast.LENGTH_SHORT).show();
+        recyclerView.setAdapter(carAdapter);
     }
 }

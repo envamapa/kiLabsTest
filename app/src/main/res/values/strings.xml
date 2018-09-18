@@ -22,4 +22,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="exterior">Exterior:</string>
+    <string name="interior">Interior:</string>
+    <string name="vin">Vin:</string>
 </resources>

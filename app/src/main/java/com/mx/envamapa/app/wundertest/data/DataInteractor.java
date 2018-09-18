@@ -12,8 +12,11 @@ import com.mx.envamapa.app.wundertest.data.sources.service.respCars.RespCars;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import io.realm.RealmResults;
 
 /**
  * Created by enya on 17/09/18.
@@ -78,6 +81,41 @@ public class DataInteractor {
             listener.onSuccess(context.getResources().getString(R.string.saved));
         }else{
             listener.onError(context.getResources().getString(R.string.no_elements));
+        }
+    }
+
+    /**
+     * Get list of 15 cars from database
+     *
+     * @param context
+     * @param listener
+     */
+    public void get15Cars(int initSearchValue, final Context context, final DataInteractorListener listener) {
+        TablaCarObject carObject = new TablaCarObject();
+        TablaCarModel carModel = new TablaCarModel(carObject);
+        RealmResults<TablaCarObject> results = carModel.getSpecificAmount(initSearchValue);
+
+        List<Car> carList = new ArrayList<>();
+        for(int i = 0 ; i < results.size() ; i ++){
+            carObject = results.get(i);
+
+            Car car = new Car();
+            car.setAddress(carObject.getAddress());
+            //car.setCoordinates(carObject.getCoordinates());
+            car.setEngineType(carObject.getEngineType());
+            car.setExterior(carObject.getExterior());
+            car.setFuel(carObject.getFuel());
+            car.setInterior(carObject.getInterior());
+            car.setName(carObject.getName());
+            car.setVin(carObject.getVin());
+
+            carList.add(car);
+        }
+
+        if(carList.size() > 0){
+            listener.onSuccess(carList);
+        }else{
+            listener.onError(context.getString(R.string.no_elements));
         }
     }
 

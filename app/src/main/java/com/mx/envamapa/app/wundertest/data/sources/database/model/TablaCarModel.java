@@ -1,8 +1,11 @@
 package com.mx.envamapa.app.wundertest.data.sources.database.model;
 
+import com.mx.envamapa.app.wundertest.commons.Constants;
 import com.mx.envamapa.app.wundertest.data.sources.database.object.TablaCarObject;
 
 import io.realm.Realm;
+import io.realm.RealmQuery;
+import io.realm.RealmResults;
 
 /**
  * Created by enya on 17/09/18.
@@ -43,5 +46,13 @@ public class TablaCarModel {
         realm.beginTransaction();
         realm.copyToRealmOrUpdate(car);
         realm.commitTransaction();
+    }
+
+    /**
+     * Get specific count of cars
+     * */
+    public RealmResults<TablaCarObject> getSpecificAmount(int amount){
+        return realm.where(TablaCarObject.class)
+                .between(_ID, amount, (amount+ Constants.ITEM_COUNT)).findAll();
     }
 }

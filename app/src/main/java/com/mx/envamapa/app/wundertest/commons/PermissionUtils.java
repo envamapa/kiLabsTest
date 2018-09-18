@@ -92,8 +92,8 @@ public class PermissionUtils {
     }
 
     /**
-     * @param requestCode  Codigo de respuesta para procesar.
-     * @param permissions  Listado de permisos.
+     * @param requestCode  Code response
+     * @param permissions  permissions list
      * @param grantResults
      */
     public void onRequestPermissionsResult(final int requestCode, final String permissions[], final int[] grantResults) {

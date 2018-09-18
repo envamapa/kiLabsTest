@@ -16,4 +16,9 @@ public class Constants {
     public static final String GET_CARS = "https://s3-us-west-2.amazonaws.com/wunderbucket/locations.json";
 
     public static final int CODE_REQUEST_PERMISSION = 1;
+
+    public static String GOOD = "GOOD";
+    public static String UNACCEPTABLE = "UNACCEPTABLE";
+
+    public static int ITEM_COUNT = 15;
 }
