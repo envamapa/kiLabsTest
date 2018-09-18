@@ -55,4 +55,11 @@ public class TablaCarModel {
         return realm.where(TablaCarObject.class)
                 .between(_ID, amount, (amount+ Constants.ITEM_COUNT)).findAll();
     }
+
+    /**
+     * Get all results
+     * */
+    public RealmResults<TablaCarObject> getAll(){
+        return realm.where(TablaCarObject.class).findAll();
+    }
 }

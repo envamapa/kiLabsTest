@@ -12,22 +12,20 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.mx.envamapa.app.wundertest.R;
+import com.mx.envamapa.app.wundertest.commons.Application;
 import com.mx.envamapa.app.wundertest.commons.Utils;
+import com.mx.envamapa.app.wundertest.data.sources.service.respCars.Car;
+import com.mx.envamapa.app.wundertest.views.presenter.mapPresenter.MapPresenter;
 import com.mx.envamapa.app.wundertest.views.view.mainActivity.MainActivityInterface;
 
-public class MapFragment extends Fragment implements OnMapReadyCallback {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import java.util.List;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+public class MapFragment extends Fragment implements MapInterface, OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
     private OnFragmentInteractionListener mListener;
 
     private MainActivityInterface mainViewInterface;
@@ -35,35 +33,16 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 
+    private MapPresenter presenter;
+    private List<Car> carList;
+
     public MapFragment() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MapFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static MapFragment newInstance(String param1, String param2) {
-        MapFragment fragment = new MapFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -72,12 +51,15 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.activity_maps, container, false);
 
-        initMap();
+        presenter = new MapPresenter(this, ((Application)getContext().getApplicationContext()));
+        presenter.getCars();
 
         return rootView;
     }
 
-    private void initMap(){
+    @Override
+    public void initMap(List<Car> carList){
+        this.carList = carList;
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -111,14 +93,41 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        addMarkers();
     }
 
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    private void addMarkers(){
+        //Add markers
+        for(int i = 0; i < carList.size() ; i++){
+            final Car car = carList.get(i);
+            final LatLng sydney = new LatLng(car.getCoordinates()[0], car.getCoordinates()[1]);
+            mMap.addMarker(new MarkerOptions()
+                    .position(sydney)
+                    .icon(Utils.bitmapDescriptorFromVector(getContext(), R.drawable.ic_car)));
+            mMap.setOnMarkerClickListener(this);
+        }
+    }
+
+    private boolean tappedMarker = false;
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        if(tappedMarker){
+            tappedMarker = false;
+            addMarkers();
+        }else{
+            tappedMarker = true;
+            //Hide all markers
+            mMap.clear();
+            mMap.addMarker(new MarkerOptions()
+                    .position(marker.getPosition())
+                    .icon(Utils.bitmapDescriptorFromVector(getContext(), R.drawable.ic_car)));
+        }
+
+        return tappedMarker;
     }
 }

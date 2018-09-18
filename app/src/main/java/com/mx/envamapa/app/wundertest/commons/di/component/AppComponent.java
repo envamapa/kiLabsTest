@@ -3,8 +3,10 @@ package com.mx.envamapa.app.wundertest.commons.di.component;
 import com.mx.envamapa.app.wundertest.commons.Application;
 import com.mx.envamapa.app.wundertest.commons.di.module.AppModule;
 import com.mx.envamapa.app.wundertest.views.presenter.listPresenter.CarListPresenter;
+import com.mx.envamapa.app.wundertest.views.presenter.mapPresenter.MapPresenter;
 import com.mx.envamapa.app.wundertest.views.presenter.splashPresenter.SplashPresenter;
 import com.mx.envamapa.app.wundertest.views.view.mainActivity.list.CarListFragment;
+import com.mx.envamapa.app.wundertest.views.view.mainActivity.maps.MapFragment;
 import com.mx.envamapa.app.wundertest.views.view.splash.SplashScreen;
 
 import javax.inject.Singleton;
@@ -23,4 +25,8 @@ public interface AppComponent {
     void inject(CarListFragment carListFragment);
 
     void inject(CarListPresenter carListPresenter);
+
+    void inject(MapFragment mapFragment);
+
+    void inject(MapPresenter mapPresenter);
 }

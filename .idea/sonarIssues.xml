@@ -28,6 +28,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../Proyectos/ContratoElectronico-Android/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../Proyectos/ContratoElectronico-Android/app/src/main/java/com/mx/suramexico/contratoelectronicofondosPF/interfazGrafica/ContenedorDocumentosAFirmarFragment.java">
           <value>
             <set />
@@ -223,6 +228,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/domain/task/GetCarsTask.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/domain/task/RequestCarsTask.java">
           <value>
             <set />
@@ -249,6 +259,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/views/presenter/listPresenter/CarListPresenterInterface.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/views/presenter/mapPresenter/MapPresenter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/views/presenter/mapPresenter/MapPresenterInterface.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/views/presenter/mapPresenter/MaptPresenter.java">
           <value>
             <set />
           </value>
@@ -303,12 +328,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/views/view/mainActivity/maps/MapInterface.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/views/view/mainActivity/maps/MapsActivity.java">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/views/view/splash/SplashScreen.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/drawable/ic_car.xml">
           <value>
             <set />
           </value>

@@ -1,24 +1,20 @@
 package com.mx.envamapa.app.wundertest.views.view.mainActivity.list;
 
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.Toast;
 
 import com.mx.envamapa.app.wundertest.R;
 import com.mx.envamapa.app.wundertest.commons.Application;
 import com.mx.envamapa.app.wundertest.commons.Constants;
 import com.mx.envamapa.app.wundertest.commons.EndlessScrollListener;
-import com.mx.envamapa.app.wundertest.commons.Utils;
 import com.mx.envamapa.app.wundertest.commons.adapters.CarAdapter;
 import com.mx.envamapa.app.wundertest.data.sources.service.respCars.Car;
 import com.mx.envamapa.app.wundertest.views.presenter.listPresenter.CarListPresenter;
@@ -126,10 +122,11 @@ public class CarListFragment extends Fragment implements CarListInterface{
     public void reloadList(List<Car> carList){
         if(initCount != 0){
             carAdapter.addElements(carList);
+            carAdapter.notifyItemRangeInserted(initCount, carList.size() - 1);
         }else{
             carAdapter = new CarAdapter(getContext(), carList, mListener);
+            recyclerView.setAdapter(carAdapter);
         }
         Toast.makeText(getContext(), "Showing "+carAdapter.getItemCount()+" cars", Toast.LENGTH_SHORT).show();
-        recyclerView.setAdapter(carAdapter);
     }
 }

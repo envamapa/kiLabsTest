@@ -1,10 +1,17 @@
 package com.mx.envamapa.app.wundertest.commons;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.mx.envamapa.app.wundertest.R;
 import com.orhanobut.logger.Logger;
 
@@ -97,5 +104,27 @@ public class Utils {
         }else{
             return R.raw.like;
         }
+    }
+
+    public static Double[] stringToDoubleArray(String coordinates) {
+        coordinates = coordinates.replace("[","").replace("]","");
+        String[] coordinatesArray = coordinates.split(",");
+
+        Double[] coords = new Double[coordinatesArray.length];
+        for(int i = 0; i< coordinatesArray.length; i++){
+            String coord = coordinatesArray[i];
+            coords[i] = Double.parseDouble(coord);
+        }
+
+        return coords;
+    }
+
+    public static BitmapDescriptor bitmapDescriptorFromVector(Context context, int vectorResId) {
+        Drawable vectorDrawable = ContextCompat.getDrawable(context, vectorResId);
+        vectorDrawable.setBounds(0, 0, vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight());
+        Bitmap bitmap = Bitmap.createBitmap(vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        vectorDrawable.draw(canvas);
+        return BitmapDescriptorFactory.fromBitmap(bitmap);
     }
 }

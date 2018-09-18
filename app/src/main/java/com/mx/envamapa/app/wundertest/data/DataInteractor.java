@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.mx.envamapa.app.wundertest.R;
+import com.mx.envamapa.app.wundertest.commons.Utils;
 import com.mx.envamapa.app.wundertest.data.sources.database.model.TablaCarModel;
 import com.mx.envamapa.app.wundertest.data.sources.database.object.TablaCarObject;
 import com.mx.envamapa.app.wundertest.data.sources.service.Request;
@@ -102,6 +103,41 @@ public class DataInteractor {
             Car car = new Car();
             car.setAddress(carObject.getAddress());
             //car.setCoordinates(carObject.getCoordinates());
+            car.setEngineType(carObject.getEngineType());
+            car.setExterior(carObject.getExterior());
+            car.setFuel(carObject.getFuel());
+            car.setInterior(carObject.getInterior());
+            car.setName(carObject.getName());
+            car.setVin(carObject.getVin());
+
+            carList.add(car);
+        }
+
+        if(carList.size() > 0){
+            listener.onSuccess(carList);
+        }else{
+            listener.onError(context.getString(R.string.no_elements));
+        }
+    }
+
+    /**
+     * Get list of cars from database
+     *
+     * @param context
+     * @param listener
+     */
+    public void getCarsDB(final Context context, final DataInteractorListener listener) {
+        TablaCarObject carObject = new TablaCarObject();
+        TablaCarModel carModel = new TablaCarModel(carObject);
+        RealmResults<TablaCarObject> results = carModel.getAll();
+
+        List<Car> carList = new ArrayList<>();
+        for(int i = 0 ; i < results.size() ; i ++){
+            carObject = results.get(i);
+
+            Car car = new Car();
+            car.setAddress(carObject.getAddress());
+            car.setCoordinates(Utils.stringToDoubleArray(carObject.getCoordinates()));
             car.setEngineType(carObject.getEngineType());
             car.setExterior(carObject.getExterior());
             car.setFuel(carObject.getFuel());
