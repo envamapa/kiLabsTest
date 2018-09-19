@@ -33,7 +33,42 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../Proyectos/ContratoElectronico-Android/app/src/main/java/com/mx/suramexico/contratoelectronicofondosPF/controlPDF/generaciondocumentos/GeneradorBase1.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Proyectos/ContratoElectronico-Android/app/src/main/java/com/mx/suramexico/contratoelectronicofondosPF/controlPDF/generaciondocumentos/GeneradorContratoEspecificoCotitular1.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Proyectos/ContratoElectronico-Android/app/src/main/java/com/mx/suramexico/contratoelectronicofondosPF/controlPDF/generaciondocumentos/GeneradorContratoEspecificoCotitular2.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Proyectos/ContratoElectronico-Android/app/src/main/java/com/mx/suramexico/contratoelectronicofondosPF/controlPDF/generaciondocumentos/GeneradorContratoEspecificoTitular1.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Proyectos/ContratoElectronico-Android/app/src/main/java/com/mx/suramexico/contratoelectronicofondosPF/controlPDF/generaciondocumentos/GeneradorCuentaPersonalEspecial1.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Proyectos/ContratoElectronico-Android/app/src/main/java/com/mx/suramexico/contratoelectronicofondosPF/controlPDF/generaciondocumentos/GeneradorPlanPersonalRetiro1.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../Proyectos/ContratoElectronico-Android/app/src/main/java/com/mx/suramexico/contratoelectronicofondosPF/interfazGrafica/ContenedorDocumentosAFirmarFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Proyectos/ContratoElectronico-Android/app/src/main/java/com/mx/suramexico/contratoelectronicofondosPF/interfazGrafica/CuestionarioFatca.java">
           <value>
             <set />
           </value>
@@ -419,6 +454,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/raw/unacceptable.json">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
           <value>
             <set />
           </value>

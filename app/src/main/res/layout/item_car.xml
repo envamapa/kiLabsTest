@@ -12,29 +12,27 @@
         <RelativeLayout
             android:id="@+id/data_rl"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/text_margin">
 
             <TextView
                 android:id="@+id/car_name_tv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/name_ic"/>
+                android:drawableStart="@drawable/name_ic"
+                style="@style/textWithDrawable"/>
 
             <LinearLayout
                 android:id="@+id/ext_int_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="4"
+                android:weightSum="6"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:layout_below="@+id/car_name_tv">
 
                 <TextView
                     android:id="@+id/exterior_tv"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="@string/exterior"/>
+                    android:text="@string/exterior"
+                    style="@style/text" />
 
                 <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/exterior_animation"
@@ -42,14 +40,13 @@
                     android:layout_weight="1"
                     android:layout_height="50dp"
                     app:lottie_rawRes="@raw/good"
-                    app:lottie_autoPlay="true"/>
+                    app:lottie_autoPlay="true"
+                    android:layout_gravity="start"/>
 
                 <TextView
                     android:id="@+id/interior_tv"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="@string/interior"/>
+                    android:text="@string/interior"
+                    style="@style/text" />
 
                 <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/interior_animation"
@@ -57,7 +54,8 @@
                     android:layout_weight="1"
                     android:layout_height="50dp"
                     app:lottie_rawRes="@raw/unacceptable"
-                    app:lottie_autoPlay="true"/>
+                    app:lottie_autoPlay="true"
+                    android:layout_gravity="start"/>
 
             </LinearLayout>
 
@@ -72,33 +70,31 @@
 
                 <TextView
                     android:id="@+id/fuel_tv"
+                    android:drawableStart="@drawable/ic_fuel"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_fuel"/>
+                    style="@style/textWithDrawable" />
 
                 <TextView
                     android:id="@+id/engine_type_tv"
+                    android:drawableStart="@drawable/ic_engine_type"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_engine_type"/>
+                    style="@style/textWithDrawable" />
 
             </LinearLayout>
 
             <TextView
                 android:id="@+id/address_tv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_below="@+id/fue_eng_ll"
                 android:drawableStart="@drawable/ic_position"
-                android:layout_below="@+id/fue_eng_ll"/>
+                style="@style/textWithDrawable" />
 
             <TextView
                 android:id="@+id/vin_tv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_below="@+id/address_tv"
-                android:text="@string/vin"/>
+                android:text="@string/vin"
+                style="@style/textWithDrawable" />
 
         </RelativeLayout>
 
