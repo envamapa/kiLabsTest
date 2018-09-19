@@ -10,9 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89a109eb-2557-476f-ac88-a7dd064b7ca3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_car.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_map.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
@@ -21,11 +18,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sonarIssues.xml" afterPath="$PROJECT_DIR$/.idea/sonarIssues.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_car.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_car.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/commons/Constants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/commons/Constants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/views/view/mainActivity/maps/MapFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/views/view/mainActivity/maps/MapFragment.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -62,10 +57,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CarListFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CarListFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/views/view/mainActivity/list/CarListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="72">
               <caret line="52" column="13" lean-forward="false" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -74,14 +69,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapFragment.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MapFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/views/view/mainActivity/maps/MapFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="60" column="13" lean-forward="false" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+            <state relative-caret-position="298">
+              <caret line="101" column="48" lean-forward="false" selection-start-line="101" selection-start-column="48" selection-end-line="101" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/commons/Constants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="22" lean-forward="false" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1968,7 +1971,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/raw/unacceptable.json" />
         <option value="$PROJECT_DIR$/app/src/main/res/raw/like.json" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/commons/adapters/CarAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/commons/Constants.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/views/view/mainActivity/list/CarListFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/commons/EndlessScrollListener.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/views/presenter/mapPresenter/MapPresenterInterface.java" />
@@ -1982,10 +1984,11 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/commons/Utils.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_car.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/commons/CoordinateConvertions.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/views/view/mainActivity/maps/MapFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_car.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/views/view/mainActivity/maps/MapFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/commons/Constants.java" />
       </list>
     </option>
   </component>
@@ -2115,7 +2118,7 @@
     <property name="FullScreen" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="device.picker.selection" value="3b3efc2d81c3a1f7" />
-    <property name="SearchEverywhereHistoryKey" value="Utils&#9;FILE&#9;file:///Users/enya/Documents/wunderTest/app/src/main/java/com/mx/envamapa/app/wundertest/commons/Utils.java&#10;Per&#9;FILE&#9;file:///Users/enya/Documents/wunderTest/app/src/main/java/com/mx/envamapa/app/wundertest/commons/PermissionUtils.java&#10;Car&#9;FILE&#9;file:///Users/enya/Documents/wunderTest/app/src/main/java/com/mx/envamapa/app/wundertest/data/sources/service/respCars/Car.java" />
+    <property name="SearchEverywhereHistoryKey" value="Cons&#9;FILE&#9;file:///Users/enya/Documents/wunderTest/app/src/main/java/com/mx/envamapa/app/wundertest/commons/Constants.java&#10;Utils&#9;FILE&#9;file:///Users/enya/Documents/wunderTest/app/src/main/java/com/mx/envamapa/app/wundertest/commons/Utils.java&#10;Per&#9;FILE&#9;file:///Users/enya/Documents/wunderTest/app/src/main/java/com/mx/envamapa/app/wundertest/commons/PermissionUtils.java&#10;Car&#9;FILE&#9;file:///Users/enya/Documents/wunderTest/app/src/main/java/com/mx/envamapa/app/wundertest/data/sources/service/respCars/Car.java" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/views/view/splash" />
   </component>
   <component name="RecentsManager">
@@ -2227,7 +2230,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1537318776385" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1537320313722" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2275,7 +2278,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1537318776386" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1537320313722" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2437,7 +2440,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1537318776387" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1537320313723" />
       </method>
     </configuration>
     <list size="1">
@@ -2667,14 +2670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/commons/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="38" lean-forward="false" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/domain/task/Get15CarsTask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -2708,6 +2703,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1105">
           <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2841,16 +2839,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/views/view/mainActivity/maps/MapFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="60" column="13" lean-forward="false" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -2885,11 +2873,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/views/view/mainActivity/list/CarListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="72">
           <caret line="52" column="13" lean-forward="false" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/commons/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="22" lean-forward="false" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/views/view/mainActivity/maps/MapFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="101" column="48" lean-forward="false" selection-start-line="101" selection-start-column="48" selection-end-line="101" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>

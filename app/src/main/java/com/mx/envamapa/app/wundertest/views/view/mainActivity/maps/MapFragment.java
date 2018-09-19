@@ -18,6 +18,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.mx.envamapa.app.wundertest.R;
 import com.mx.envamapa.app.wundertest.commons.Application;
+import com.mx.envamapa.app.wundertest.commons.Constants;
 import com.mx.envamapa.app.wundertest.commons.CoordinateConvertions;
 import com.mx.envamapa.app.wundertest.commons.Utils;
 import com.mx.envamapa.app.wundertest.data.sources.service.respCars.Car;
@@ -95,6 +96,10 @@ public class MapFragment extends Fragment implements MapInterface, OnMapReadyCal
         mMap = googleMap;
 
         addMarkers();
+
+        LatLng hamburg = new LatLng(Constants.INIT_LAT, Constants.INIT_LON);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(hamburg));
+        mMap.setMinZoomPreference(Constants.ZOOM);
     }
 
     public interface OnFragmentInteractionListener {

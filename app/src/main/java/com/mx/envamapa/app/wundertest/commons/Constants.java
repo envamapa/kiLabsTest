@@ -1,9 +1,5 @@
 package com.mx.envamapa.app.wundertest.commons;
 
-/**
- * Created by enya on 13/09/18.
- */
-
 public class Constants {
 
     public static final boolean ALLOWING_LOGS = true;
@@ -21,4 +17,8 @@ public class Constants {
     public static String UNACCEPTABLE = "UNACCEPTABLE";
 
     public static int ITEM_COUNT = 15;
+
+    public static Double INIT_LAT = 53.5582447;
+    public static Double INIT_LON = 9.647645;
+    public static float ZOOM = 10;
 }
