@@ -163,6 +163,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/commons/LocationProvider.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mx/envamapa/app/wundertest/commons/PermissionUtils.java">
           <value>
             <set />

@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-feature android:name="android.hardware.location.gps" />
 
     <uses-feature
         android:glEsVersion="0x00020000"
@@ -32,9 +33,9 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBxANxXR5VTfeEQQUy_sFvFC7F-YqZxAnk" />
-        <activity
-            android:name=".views.view.mainActivity.maps.MapsActivity"
-            android:label="@string/title_activity_maps" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
         <activity
             android:name=".views.view.mainActivity.MainActivity"
             android:label="@string/title_activity_main"
