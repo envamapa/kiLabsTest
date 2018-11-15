@@ -27,6 +27,10 @@
             android:name=".views.view.mainActivity.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".views.view.detailActivity.DetailActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

@@ -1,7 +1,5 @@
 package com.mx.envamapa.app.wundertest.views.view.mainActivity;
 
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 
 import android.os.Bundle;
 
-import android.view.MenuItem;
 import android.widget.LinearLayout;
 
 import com.mx.envamapa.app.wundertest.R;
@@ -20,10 +17,10 @@ import com.mx.envamapa.app.wundertest.commons.adapters.PhotoAdapter;
 import com.mx.envamapa.app.wundertest.data.sources.service.respPhotos.Photo;
 import com.mx.envamapa.app.wundertest.data.sources.service.respPhotos.Photos;
 import com.mx.envamapa.app.wundertest.views.presenter.mainPresenter.MainPresenter;
+import com.mx.envamapa.app.wundertest.views.view.detailActivity.DetailActivity;
 
 public class MainActivity extends AppCompatActivity implements RowClickListener<Photo>,
         SwipeRefreshLayout.OnRefreshListener,
-        NavigationView.OnNavigationItemSelectedListener,
         MainActivityInterface{
 
     //UI elements
@@ -74,12 +71,7 @@ public class MainActivity extends AppCompatActivity implements RowClickListener<
 
     @Override
     public void onRowClicked(int row, Photo item) {
-
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return false;
+        startActivity(DetailActivity.createIntent(this, row, photoAdapter.getAll()));
     }
 
     @Override

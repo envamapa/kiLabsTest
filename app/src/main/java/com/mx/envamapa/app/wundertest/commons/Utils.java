@@ -1,11 +1,20 @@
 package com.mx.envamapa.app.wundertest.commons;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.annotation.ColorRes;
+import android.support.annotation.DrawableRes;
+import android.support.annotation.StringRes;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.DrawableRequestBuilder;
@@ -16,6 +25,8 @@ import com.orhanobut.logger.Logger;
  * Common functions
  * */
 public class Utils {
+
+    private static final String MIME_TYPE_SHARE = "text/plain";
 
     /**
      * PRINT LOG AS DEBUG
@@ -106,5 +117,39 @@ public class Utils {
                 .crossFade();
         if (centerCrop) builder.centerCrop();
         builder.into(target);
+    }
+
+    public static Snackbar createSnackbar(Activity activity, @StringRes int resId) {
+        View root = activity.findViewById(android.R.id.content);
+        return Snackbar.make(root, resId, Snackbar.LENGTH_LONG);
+    }
+
+    public static void setVectorBg(View target, @DrawableRes int drRes, @ColorRes int normalRes,
+                                   @ColorRes int pressedRes) {
+        int[][] states = new int[][]{
+                new int[]{
+                        android.R.attr.state_pressed},
+                new int[]{
+
+                }
+        };
+        int[] colors = new int[]{
+                ContextCompat.getColor(target.getContext(), pressedRes),
+                ContextCompat.getColor(target.getContext(), normalRes)
+        };
+        ColorStateList cl = new ColorStateList(states, colors);
+
+        Drawable drawable = ContextCompat.getDrawable(target.getContext(), drRes);
+        Drawable wrapped = DrawableCompat.wrap(drawable);
+        DrawableCompat.setTintList(wrapped, cl);
+        target.setBackground(wrapped);
+    }
+
+    public static Intent createShareIntent(String subject, String text) {
+        Intent intent = new Intent(Intent.ACTION_SEND)
+                .setType(MIME_TYPE_SHARE)
+                .putExtra(Intent.EXTRA_SUBJECT, subject)
+                .putExtra(Intent.EXTRA_TEXT, text);
+        return Intent.createChooser(intent, "Choose app");
     }
 }

@@ -2,14 +2,10 @@ package com.mx.envamapa.app.wundertest.views.presenter.mainPresenter;
 
 import com.mx.envamapa.app.wundertest.commons.Application;
 import com.mx.envamapa.app.wundertest.commons.Utils;
-import com.mx.envamapa.app.wundertest.data.sources.service.respPhotos.Photo;
-import com.mx.envamapa.app.wundertest.data.sources.service.respPhotos.Photos;
 import com.mx.envamapa.app.wundertest.data.sources.service.respPhotos.RespImages;
 import com.mx.envamapa.app.wundertest.domain.manager.TaskManager;
 import com.mx.envamapa.app.wundertest.domain.task.GetImagesTask;
 import com.mx.envamapa.app.wundertest.views.view.mainActivity.MainActivityInterface;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -39,8 +35,6 @@ public class MainPresenter implements MainPresenterInterface {
     @Override
     public void downloadData(int page){
         if (Utils.isOnline(application.getBaseContext())) {
-            isLoading = true;
-
             taskManager.execute(new GetImagesTask(page, application.getApplicationContext(), new GetImagesTask.GetImagesTaskListener() {
                 @Override
                 public void onFinishTask(RespImages respImages) {

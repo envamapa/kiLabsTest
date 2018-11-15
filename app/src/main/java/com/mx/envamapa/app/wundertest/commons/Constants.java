@@ -33,5 +33,9 @@ public class Constants {
     public static final String COLUMN_PHOTO = "photo";
     public static final String COLUMN_PHOTOS = "photos";
 
+    public static final String EXTRA_INDEX = "EXTRA_INDEX";
+    public static final String EXTRA_ITEMS = "EXTRA_ITEMS";
+    public static final String EXTRA_ITEM = "EXTRA_ITEM";
+
 
 }

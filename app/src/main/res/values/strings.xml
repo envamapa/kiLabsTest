@@ -12,17 +12,11 @@
     <string name="cancel">Cancel</string>
     <string name="msg_need_permission">We need permissions to continue</string>
     <string name="msg_explain_need_permission">We need the next permissions</string>
-    <string name="title_activity_maps">NearCars</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
-    <string name="section_format">Hello World from section: %1$d</string>
-    <string name="cars_list">List</string>
-    <string name="cars_map">Map</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="exterior">Exterior:</string>
-    <string name="interior">Interior:</string>
-    <string name="vin">Vin:</string>
+    <string name="connectionErrorMessage">Please chek your device connection</string>
+    <string name="settings">Settings</string>
+    <string name="loading">Loading...</string>
+    <string name="close">Close</string>
+    <string name="description">Description</string>
 </resources>

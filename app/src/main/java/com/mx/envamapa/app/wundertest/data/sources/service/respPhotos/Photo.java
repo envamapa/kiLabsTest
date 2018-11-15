@@ -2,7 +2,9 @@ package com.mx.envamapa.app.wundertest.data.sources.service.respPhotos;
 
 import com.mx.envamapa.app.wundertest.commons.ImageSize;
 
-public class Photo {
+import java.io.Serializable;
+
+public class Photo implements Serializable{
 
     private static final String IMAGE_URL = "https://farm%s.staticflickr.com/%s/%s_%s_%s.jpg";
 

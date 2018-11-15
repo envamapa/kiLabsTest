@@ -11,12 +11,10 @@ import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.google.gson.Gson;
 import com.mx.envamapa.app.wundertest.R;
 import com.mx.envamapa.app.wundertest.commons.Constants;
 import com.mx.envamapa.app.wundertest.commons.Utils;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -25,14 +23,10 @@ import java.util.Map;
 import static com.mx.envamapa.app.wundertest.commons.Constants.GET_IMAGES;
 import static com.mx.envamapa.app.wundertest.commons.Constants.URL_SEARCH;
 
-/**
- * Created by enya on 17/09/18.
- */
-
 public class Request {
 
     private VolleyHelper volley;
-    protected RequestQueue fRequestQueue;
+    private RequestQueue fRequestQueue;
     private static Request requestInstance;
 
     /**

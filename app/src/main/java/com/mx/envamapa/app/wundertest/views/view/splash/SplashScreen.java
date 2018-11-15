@@ -62,6 +62,7 @@ public class SplashScreen extends AppCompatActivity implements SplashScreenInter
     public void goToMainActivity(){
         Intent mainActivityIntent = new Intent(this, MainActivity.class);
         startActivity(mainActivityIntent);
+        this.finish();
     }
 
     @Override
