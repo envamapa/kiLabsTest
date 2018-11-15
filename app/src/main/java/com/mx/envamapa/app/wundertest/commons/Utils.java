@@ -1,18 +1,15 @@
 package com.mx.envamapa.app.wundertest.commons;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.widget.ImageView;
 
-import com.google.android.gms.maps.model.BitmapDescriptor;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.mx.envamapa.app.wundertest.R;
+import com.bumptech.glide.DrawableRequestBuilder;
+import com.bumptech.glide.Glide;
 import com.orhanobut.logger.Logger;
 
 /**
@@ -96,35 +93,18 @@ public class Utils {
         return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 
-    public static int getAnimation(String result) {
-        if(result.equals(Constants.GOOD)){
-            return R.raw.good;
-        }else if(result.equals(Constants.UNACCEPTABLE)){
-            return R.raw.unacceptable;
-        }else{
-            return R.raw.like;
-        }
-    }
-
-    public static Double[] stringToDoubleArray(String coordinates) {
-        coordinates = coordinates.replace("[","").replace("]","");
-        String[] coordinatesArray = coordinates.split(",");
-
-        Double[] coords = new Double[coordinatesArray.length];
-        for(int i = 0; i< coordinatesArray.length; i++){
-            String coord = coordinatesArray[i];
-            coords[i] = Double.parseDouble(coord);
-        }
-
-        return coords;
-    }
-
-    public static BitmapDescriptor bitmapDescriptorFromVector(Context context, int vectorResId) {
-        Drawable vectorDrawable = ContextCompat.getDrawable(context, vectorResId);
-        vectorDrawable.setBounds(0, 0, vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight());
-        Bitmap bitmap = Bitmap.createBitmap(vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(bitmap);
-        vectorDrawable.draw(canvas);
-        return BitmapDescriptorFactory.fromBitmap(bitmap);
+    /**
+     * @param ic_image = R.drawable.ic_image_24dp
+     * @param ic_broke = R.drawable.ic_broken_image_24dp
+     * */
+    public static void bindImage(String url, ImageView target, boolean centerCrop, int ic_image, int ic_broke) {
+        Drawable drawable = ContextCompat.getDrawable(target.getContext(), ic_image);
+        DrawableRequestBuilder<String> builder = Glide.with(Application.getContext())
+                .load(url)
+                .error(ic_broke)
+                .placeholder(drawable)
+                .crossFade();
+        if (centerCrop) builder.centerCrop();
+        builder.into(target);
     }
 }

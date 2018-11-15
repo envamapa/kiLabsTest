@@ -1,5 +1,7 @@
 package com.mx.envamapa.app.wundertest.commons;
 
+import android.content.Context;
+
 import com.mx.envamapa.app.wundertest.commons.di.component.AppComponent;
 import com.mx.envamapa.app.wundertest.commons.di.component.DaggerAppComponent;
 import com.mx.envamapa.app.wundertest.commons.di.module.AppModule;
@@ -12,25 +14,11 @@ import io.realm.RealmConfiguration;
 public class Application extends android.app.Application {
 
     private AppComponent mAppComponent;
+    private static Context instance;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        Realm.init(this);
-        Realm realm;
-        try{
-            realm = Realm.getDefaultInstance();
-
-        }catch (Exception e){
-            Utils.printLogError(e.getMessage(), true, false);
-            // Get a Realm instance for this thread
-            RealmConfiguration config = new RealmConfiguration.Builder()
-                    .deleteRealmIfMigrationNeeded()
-                    .build();
-            realm = Realm.getInstance(config);
-
-        }
-        realm.close();
         createDaggerInjections();
         Logger.addLogAdapter(new AndroidLogAdapter());
 
@@ -47,5 +35,13 @@ public class Application extends android.app.Application {
 
     public AppComponent getAppComponent(){
         return this.mAppComponent;
+    }
+
+    public static Context getContext() {
+        return instance;
+    }
+
+    public static void setInstance(Context instance) {
+        Application.instance = instance;
     }
 }

@@ -10,10 +10,10 @@
     tools:context="com.mx.envamapa.app.wundertest.views.view.splash.SplashScreen">
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/car_animation"
+        android:id="@+id/animation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:lottie_rawRes="@raw/car"
+        app:lottie_rawRes="@raw/image"
         app:lottie_loop="true"
         android:layout_alignParentTop="true"/>
 
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/downloading"
-        android:layout_below="@+id/car_animation"
+        android:layout_below="@+id/animation"
         android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

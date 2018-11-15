@@ -6,6 +6,4 @@ package com.mx.envamapa.app.wundertest.views.presenter.splashPresenter;
 
 public interface SplashPresenterInterface {
     void verifyPermissions();
-
-    void databaBaseExist();
 }

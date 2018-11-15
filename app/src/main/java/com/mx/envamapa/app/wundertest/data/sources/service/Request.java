@@ -22,6 +22,9 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.mx.envamapa.app.wundertest.commons.Constants.GET_IMAGES;
+import static com.mx.envamapa.app.wundertest.commons.Constants.URL_SEARCH;
+
 /**
  * Created by enya on 17/09/18.
  */
@@ -53,8 +56,8 @@ public class Request {
         void onFailed(String mensaje);
     }
 
-    public void requestCarts(final Context context, final serviceCallStatus serviceCallStatus) {
-        String url = Constants.GET_CARS;
+    public void requestImages(int page, final Context context, final serviceCallStatus serviceCallStatus) {
+        String url = GET_IMAGES + URL_SEARCH + page;
         doRequestGet(context, url, serviceCallStatus);
     }
 

@@ -8,18 +8,12 @@ import com.mx.envamapa.app.wundertest.commons.Application;
 import com.mx.envamapa.app.wundertest.commons.Constants;
 import com.mx.envamapa.app.wundertest.commons.PermissionUtils;
 import com.mx.envamapa.app.wundertest.commons.Utils;
-import com.mx.envamapa.app.wundertest.data.sources.MyRealm;
 import com.mx.envamapa.app.wundertest.domain.manager.TaskManager;
-import com.mx.envamapa.app.wundertest.domain.task.RequestCarsTask;
 import com.mx.envamapa.app.wundertest.views.view.splash.SplashScreenInterface;
 
 import java.util.ArrayList;
 
 import javax.inject.Inject;
-
-/**
- * Created by enya on 17/09/18.
- */
 
 public class SplashPresenter implements SplashPresenterInterface, PermissionUtils.PermissionResultCallback {
 
@@ -47,45 +41,16 @@ public class SplashPresenter implements SplashPresenterInterface, PermissionUtil
 
         permissionList = new ArrayList<>();
         permissionList.add(Manifest.permission.ACCESS_NETWORK_STATE);
-        permissionList.add(Manifest.permission.ACCESS_FINE_LOCATION);
-        permissionList.add(Manifest.permission.ACCESS_COARSE_LOCATION);
-        permissionList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        permissionList.add(Manifest.permission.READ_EXTERNAL_STORAGE);
 
         permissionUtils.checkPermission(permissionList, application.getApplicationContext().getString(R.string.msg_explain_need_permission), Constants.CODE_REQUEST_PERMISSION);
-    }
-
-    /**
-     * Verify if database exists
-     */
-    @Override
-    public void databaBaseExist() {
-        if(!MyRealm.existDB()){
-            taskManager.execute(new RequestCarsTask(application.getApplicationContext(), new RequestCarsTask.RequestCarsTaskListener() {
-                @Override
-                public void onFinishTask(String fillComplete) {
-                    viewInterface.showMessage(fillComplete);
-                    viewInterface.goToMainActivity();
-                }
-
-                @Override
-                public void onErrorTask(String code, String message) {
-                    viewInterface.showMessage(message);
-                    viewInterface.error();
-                }
-            }), null);
-        }else{
-            viewInterface.showMessage(application.getApplicationContext().getResources().getString(R.string.data_exists));
-            viewInterface.goToMainActivity();
-        }
     }
 
 
     /** Permission results */
     @Override
     public void permissionGranted(int requestCode) {
-        Utils.printLogInfo("Permisos otorgados", true, false);
-        databaBaseExist();
+        Utils.printLogInfo("Permission Granted", true, false);
+        viewInterface.goToMainActivity();
     }
 
     @Override

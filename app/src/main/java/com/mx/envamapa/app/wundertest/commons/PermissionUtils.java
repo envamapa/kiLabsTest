@@ -16,10 +16,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by enya on 17/09/18.
- */
-
 public class PermissionUtils {
     private Context context;
     private Activity activity;

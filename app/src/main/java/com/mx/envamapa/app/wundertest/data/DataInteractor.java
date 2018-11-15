@@ -10,6 +10,7 @@ import com.mx.envamapa.app.wundertest.data.sources.database.object.TablaCarObjec
 import com.mx.envamapa.app.wundertest.data.sources.service.Request;
 import com.mx.envamapa.app.wundertest.data.sources.service.respCars.Car;
 import com.mx.envamapa.app.wundertest.data.sources.service.respCars.RespCars;
+import com.mx.envamapa.app.wundertest.data.sources.service.respPhotos.RespImages;
 
 import org.json.JSONObject;
 
@@ -35,17 +36,16 @@ public class DataInteractor {
     }
 
     /**
-     * Get list of cars from the service
-     *
      * @param context
      * @param listener
      */
-    public void getCars(final Context context, final DataInteractorListener listener) {
-        Request.getRequestInstance().requestCarts(context, new Request.serviceCallStatus() {
+    public void getImagesRequest(int page, final Context context, final DataInteractorListener listener) {
+        Request.getRequestInstance().requestImages(page, context, new Request.serviceCallStatus() {
                     @Override
                     public void onSuccess(JSONObject jsonObject) {
-                        RespCars respCars = new Gson().fromJson(jsonObject.toString(), RespCars.class); // SERVICE
-                        saveCars(respCars.getPlacemarks(), listener, context);
+                        Utils.printLogInfo(jsonObject.toString(), true, true);
+                        RespImages respCars = new Gson().fromJson(jsonObject.toString(), RespImages.class); // SERVICE
+                        listener.onSuccess(respCars);
                     }
 
                     @Override
@@ -53,106 +53,6 @@ public class DataInteractor {
                         listener.onError(mensaje);
                     }
                 });
-    }
-
-    /**
-     * Save cars received by the service
-     *
-     * @param placemarkers
-     * */
-    private void saveCars(List<Car> placemarkers, DataInteractorListener listener, Context context){
-        if(placemarkers != null && placemarkers.size() > 0){
-            for(int i = 0 ; i < placemarkers.size() ; i++){
-                Car car = placemarkers.get(i);
-
-                TablaCarObject carObject = new TablaCarObject();
-                carObject.setId(i);
-                carObject.setAddress(car.getAddress());
-                carObject.setCoordinates(Arrays.toString(car.getCoordinates()));
-                carObject.setEngineType(car.getEngineType());
-                carObject.setExterior(car.getExterior());
-                carObject.setFuel(car.getFuel());
-                carObject.setInterior(car.getInterior());
-                carObject.setName(car.getName());
-                carObject.setVin(car.getVin());
-
-                TablaCarModel carModel = new TablaCarModel(carObject);
-                carModel.insert(carObject);
-            }
-            listener.onSuccess(context.getResources().getString(R.string.saved));
-        }else{
-            listener.onError(context.getResources().getString(R.string.no_elements));
-        }
-    }
-
-    /**
-     * Get list of 15 cars from database
-     *
-     * @param context
-     * @param listener
-     */
-    public void get15Cars(int initSearchValue, final Context context, final DataInteractorListener listener) {
-        TablaCarObject carObject = new TablaCarObject();
-        TablaCarModel carModel = new TablaCarModel(carObject);
-        RealmResults<TablaCarObject> results = carModel.getSpecificAmount(initSearchValue);
-
-        List<Car> carList = new ArrayList<>();
-        for(int i = 0 ; i < results.size() ; i ++){
-            carObject = results.get(i);
-
-            Car car = new Car();
-            car.setAddress(carObject.getAddress());
-            //car.setCoordinates(carObject.getCoordinates());
-            car.setEngineType(carObject.getEngineType());
-            car.setExterior(carObject.getExterior());
-            car.setFuel(carObject.getFuel());
-            car.setInterior(carObject.getInterior());
-            car.setName(carObject.getName());
-            car.setVin(carObject.getVin());
-
-            carList.add(car);
-        }
-
-        if(carList.size() > 0){
-            listener.onSuccess(carList);
-        }else{
-            listener.onError(context.getString(R.string.no_elements));
-        }
-    }
-
-    /**
-     * Get list of cars from database
-     *
-     * @param context
-     * @param listener
-     */
-    public void getCarsDB(final Context context, final DataInteractorListener listener) {
-        TablaCarObject carObject = new TablaCarObject();
-        TablaCarModel carModel = new TablaCarModel(carObject);
-        RealmResults<TablaCarObject> results = carModel.getAll();
-
-        List<Car> carList = new ArrayList<>();
-        for(int i = 0 ; i < results.size() ; i ++){
-            carObject = results.get(i);
-
-            Car car = new Car();
-            car.setAddress(carObject.getAddress());
-            car.setCoordinates(Utils.stringToDoubleArray(carObject.getCoordinates()));
-            car.setEngineType(carObject.getEngineType());
-            car.setExterior(carObject.getExterior());
-            car.setFuel(carObject.getFuel());
-            car.setInterior(carObject.getInterior());
-            car.setName(carObject.getName());
-            car.setVin(carObject.getVin());
-
-            carList.add(car);
-        }
-
-        if(carList.size() > 0){
-            listener.onSuccess(carList);
-        }else{
-            listener.onError(context.getString(R.string.no_elements));
-        }
     }
 
 }

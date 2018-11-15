@@ -17,5 +17,5 @@ public class RespCars {
     public void setPlacemarks(List<Car> placemarks) {
         this.placemarks = placemarks;
     }
-    
+
 }

@@ -25,7 +25,7 @@ public class SplashScreen extends AppCompatActivity implements SplashScreenInter
     Context context;
 
     //UI Variables
-    private LottieAnimationView carAnimation;
+    private LottieAnimationView animation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +39,12 @@ public class SplashScreen extends AppCompatActivity implements SplashScreenInter
     }
 
     private void initAnimation(){
-        carAnimation = findViewById(R.id.car_animation);
+        animation = findViewById(R.id.animation);
         new CountDownTimer(Constants.SPLASH_TIME, 1000) {
 
             @Override
             public void onTick(long millisUntilFinished) {
-                carAnimation.playAnimation();
+                animation.playAnimation();
             }
 
             @Override
