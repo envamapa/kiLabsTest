@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WunderTest</string>
+    <string name="app_name">KI Labs Test</string>
     <string name="downloading">Downloading great stuff...</string>
     <string name="system_error">System error</string>
     <string name="error_de_servidor_reintento">server_error</string>

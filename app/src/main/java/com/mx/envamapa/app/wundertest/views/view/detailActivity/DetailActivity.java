@@ -35,8 +35,6 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
     private ViewPager pager;
     private TextView tvOwner;
     private TextView tvTitle;
-    private TextView tvDate;
-    private TextView tvViewCount;
     private View lnrFooter;
     private View ivClose;
     private View ivInfo;
@@ -65,8 +63,6 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
         pager = findViewById(R.id.pager);
         tvOwner = findViewById(R.id.tvOwner);
         tvTitle = findViewById(R.id.tvTitle);
-        tvDate = findViewById(R.id.tvDate);
-        tvViewCount = findViewById(R.id.tvViewCount);
         lnrFooter = findViewById(R.id.lnrFooter);
         ivClose = findViewById(R.id.ivClose);
         ivInfo = findViewById(R.id.ivInfo);
@@ -109,10 +105,8 @@ public class DetailActivity extends AppCompatActivity implements DetailActivityI
 
     public void onPageSelected(int position) {
         //showLoadingDialog();
-        tvOwner.setText(R.string.loading);
-        tvTitle.setText(R.string.loading);
-        tvDate.setText(R.string.loading);
-        tvViewCount.setText(R.string.loading);
+        tvOwner.setText(items.get(position).getOwner());
+        tvTitle.setText(items.get(position).getTitle());
         //flickrService.getDetailAsync(items.get(position).getId());
     }
 
